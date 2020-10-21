@@ -18,5 +18,3 @@ set -e
 set -x
 
 make build
-
-docker build -t google/cadvisor:beta -f $(dirname $0)/Dockerfile .
