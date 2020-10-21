@@ -19,7 +19,7 @@ WORKDIR /go/src/github.com/google/cadvisor
 ENV GOROOT /usr/lib/go
 ENV GOPATH /go
 ENV GO_FLAGS="-tags=libpfm,netgo"
-RUN ./build/build.sh
+RUN ./build.sh
 
 
 FROM alpine:3.12
