@@ -1,4 +1,5 @@
 FROM alpine:3.12 AS build
+MAINTAINER dengnan@google.com vmarmol@google.com vishnuk@google.com jimmidyson@gmail.com stclair@google.com
 
 RUN apk --no-cache add libc6-compat device-mapper findutils zfs  build-base linux-headers go bash git wget && \
     apk --no-cache add thin-provisioning-tools --repository http://dl-3.alpinelinux.org/alpine/edge/main/ && \
@@ -20,10 +21,6 @@ ENV GOROOT /usr/lib/go
 ENV GOPATH /go
 ENV GO_FLAGS="-tags=libpfm,netgo"
 RUN ./build.sh
-
-
-FROM alpine:3.12
-MAINTAINER dengnan@google.com vmarmol@google.com vishnuk@google.com jimmidyson@gmail.com stclair@google.com
 
 RUN apk --no-cache add libc6-compat device-mapper findutils zfs && \
     apk --no-cache add thin-provisioning-tools --repository http://dl-3.alpinelinux.org/alpine/edge/main/ && \
